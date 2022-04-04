@@ -1,8 +1,8 @@
-import React, { useState, useEffect, isLargeRow } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "../axios";
 import "./Row.css";
 const base_url = "https://image.tmdb.org/t/p/original/";
-function Row({ title, fetchUrl }) {
+function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
 
   //   this code runs when a spesific condition is met
@@ -19,8 +19,7 @@ function Row({ title, fetchUrl }) {
   return (
     <div className="row">
       {/* /* title */}
-      <h2> {title} </h2>
-      {console.log(movies)}
+      <h2 className="row__title" > {title} </h2>
       <div className="row__posters">
         {/*several row_posters */}
         {movies.map((movie) => (
@@ -34,8 +33,10 @@ function Row({ title, fetchUrl }) {
           //console.log(`${base_url}${movie.poster_path}`);
           <img
             key={movie.id}
-            className="row__poster"
-            src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+            className={ `row__poster ${isLargeRow && "row__posterLarge"}`} 
+            src={`${base_url}${
+              isLargeRow ? movie.poster_path : movie.backdrop_path
+            }`}
             //src={`${base_url}${movie.poster_path}`}
             alt={movie.name}
           />
