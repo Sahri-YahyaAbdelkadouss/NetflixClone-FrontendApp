@@ -20,7 +20,7 @@ function Banner({ fetchUrl }) {
     fetchData();
   }, [fetchUrl]);
 
-  function truncate (str, n) {
+  function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
@@ -49,9 +49,13 @@ function Banner({ fetchUrl }) {
 
         {/* description */}
         <div className="banner_description">
-          <h1 className="banner_description"> {truncate(movie?.overview, 150)} </h1>
+          <h1 className="banner_description">
+            {" "}
+            {truncate(movie?.overview, 150)}{" "}
+          </h1>
         </div>
       </div>
+      <div className="banner_fadebottom" />
     </header>
   );
 }
