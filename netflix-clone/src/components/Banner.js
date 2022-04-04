@@ -35,24 +35,26 @@ function Banner({ fetchUrl }) {
         backgroundPosition: "center center",
       }}
     >
-      <div className="banner_contents">
-        {/* title  */}
-        <h1 className="banner_title">
-          {movie?.title || movie?.name || movie.original_name}
-        </h1>
-
-        {/* div > 2 buttons  */}
-        <div className="banner_button">
-          <button className="banner_buttons">Play</button>
-          <button className="banner_buttons">My List</button>
-        </div>
-
-        {/* description */}
-        <div className="banner_description">
-          <h1 className="banner_description">
-            {" "}
-            {truncate(movie?.overview, 150)}{" "}
+      <div className="testing">
+        <div className="banner_contents">
+          {/* title  */}
+          <h1 className="banner_title">
+            {movie?.title || movie?.name || movie.original_name}
           </h1>
+
+          {/* div > 2 buttons  */}
+          <div className="banner_button">
+            <button className="banner_buttons">Play</button>
+            <button className="banner_buttons">My List</button>
+          </div>
+
+          {/* description */}
+          <div className="banner_description">
+            <h1 className="banner_description">
+              {" "}
+              {truncate(movie?.overview, 150)}{" "}
+            </h1>
+          </div>
         </div>
       </div>
       <div className="banner_fadebottom" />

@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import Row from "./components/Row";
 import Banner from "./components/Banner";
+import Navbar from "./components/Navbar";
 import requests from "./requests";
+
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Banner fetchUrl={requests.fetchNetflixOriginals} />
       <Row
         title="Netflix Originals"
