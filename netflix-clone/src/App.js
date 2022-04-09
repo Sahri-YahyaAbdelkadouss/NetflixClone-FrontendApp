@@ -6,6 +6,7 @@ import BannerClass from "./components/BannerClass";
 import Navbar from "./components/Navbar";
 import NavbarClass from "./components/NavbarClass"
 import requests from "./requests";
+import RowClass from "./components/RowClass";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
           <NavbarClass/>
     </div>
       <BannerClass fetchUrl={requests.fetchNetflixOriginals} />
-      <Row
+      <RowClass
         title="Netflix Originals"
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow

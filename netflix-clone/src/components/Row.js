@@ -18,8 +18,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, settrailerUrl] = useState("");
   //const [slectedMovie, setslectedMovie] = useState();
-
-
   //   this code runs when a spesific condition is met
   useEffect(() => {
     // any outside variable is a depandancy must be added in []
@@ -45,7 +43,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           const urlParams = new URLSearchParams(urlSerch);
           settrailerUrl(urlParams.get("v"));
         })
-        .catch((err) => console.log("movieTrailer catched this err", err));
+        .catch((err) => console.log("Note movieTrailer catched this err", err));
     }
   };
 
@@ -70,8 +68,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
           //   console.log("url :" , `${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`);
           //console.log(`${base_url}${movie.poster_path}`);
           //   console.log(movie);
-          <>
-            {console.log(movie)};
             <img
               key={movie.id}
               className={`row__poster ${isLargeRow && "row__posterLarge"}`}
@@ -83,7 +79,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
               onClick={() => handleClick(movie)}
               //onClick={() => onMovieSelect(movie)}
             />
-          </>
         ))}
       </div>
       {/* /* container  ->  posters */}
