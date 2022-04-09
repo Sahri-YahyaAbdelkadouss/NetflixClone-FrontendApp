@@ -29,13 +29,10 @@ export default class RowClass extends Component {
   }
 
   handleClick = (movie) => {
-    console.log("click");
-    // console.log("trailerUrl", this.setate.trailerUrl);
     if (this.state.trailerUrl) {
       this.setState({ ...this.state, trailerUrl: "" });
     } else {
-      console.log("movie", movie?.title || movie?.name || movie?.original_name);
-      movieTrailer(movie?.title || movie?.name || movie?.original_name || "")
+      movieTrailer(movie?.name || movie?.title || movie?.original_name || "")
         .then((url) => {
           const urlSerch = new URL(url).search;
           const urlParams = new URLSearchParams(urlSerch);
@@ -43,13 +40,11 @@ export default class RowClass extends Component {
         })
         .catch((err) => console.log("Note movieTrailer catched this err", err));
     }
-  };
+  }
 
   componentDidMount() {
-    console.log("CompDidMount is invoked");
     this.fetchData().then((res) => {
       this.setState({ ...this.state, movies: res.data.results });
-      console.log("this.setate.movies", this.setate.movies);
     });
   }
 
@@ -61,7 +56,6 @@ export default class RowClass extends Component {
 
         <div className="row__posters">
           {/*several row_posters */}
-          {console.log("movies :", this.state.movies)}
           {this.state.movies.map((movie) => (
             <img
               key={movie.id}
